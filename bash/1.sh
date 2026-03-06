@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Week 7 example: simple bash script
-# The below script is tested in Kali
+# The below script is tested in Kali, LinuxMint and Hullu
 # https://github.com/kaledaljebur/security-automation-scripts
 
 echo "=== CYB803 Bash Security Automation Demo ==="
@@ -16,19 +16,24 @@ w
 echo
 
 echo "Checking listening network ports..."
-# In Kali and Mint make sure SSH is started `sudo systemctl start ssh`
+# In Kali and Mint, make sure SSH is started: sudo systemctl start ssh
+# This also works on Hullu
 ss -tuln
 echo
 
 echo "Displaying last 5 failed login attempts (if available)..."
-sudo journalctl | grep "Failed password"
-# or `sudo journalctl | grep authentication`, or `sudo journalctl | grep pam`
+journalctl | grep "Failed password" | tail -5
+# or use:
+# journalctl | grep authentication | tail -5
+# journalctl | grep pam | tail -5
 
-# For Ubuntu and LinuxMint, follow the below:
+# For Ubuntu and Linux Mint:
 # sudo apt update && sudo apt -y install openssh-server && sudo systemctl start ssh
-# `ssh localhost` then use wrong password
+# ssh localhost
+# then enter a wrong password
 # grep "Failed password" /var/log/auth.log | tail -5
 
-# For Alpine, use Hullu VM and SSH from Kali with wrong password
-# ssh root@AlpineIP
-# grep "Failed password" /var/log/messages
+# For Hulu:
+# ssh root@HulluIP
+# then enter a wrong password
+# grep "Failed password" /var/log/messages | tail -5
