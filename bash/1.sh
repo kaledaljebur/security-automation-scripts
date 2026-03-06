@@ -15,21 +15,20 @@ w
 # You may also use `who` in Ubuntu and Mint
 echo
 
-echo "Displaying last 5 failed login attempts (if available)..."
-
-journalctl | grep authentication
-# or `journalctl | grep authentication`, or `journalctl | grep pam`
-
-# For Ubuntu and LinuxMint, follow the below:
-# sudo apt update && sudo apt -y install openssh-server && sudo systemctl start ssh
-# `ssh localhost` then use wrong password
-# grep "Failed password" /var/log/auth.log 2>/dev/null | tail -5
-
-# For Alpine, use Hullu VM and SSH from Kali with wrong password
-# ssh root@AlpineIP
-# grep "Failed password" /var/log/messages
-
 echo "Checking listening network ports..."
 # In Kali and Mint make sure SSH is started `sudo systemctl start ssh`
 ss -tuln
 echo
+
+echo "Displaying last 5 failed login attempts (if available)..."
+sudo journalctl | grep "Failed password"
+# or `sudo journalctl | grep authentication`, or `sudo journalctl | grep pam`
+
+# For Ubuntu and LinuxMint, follow the below:
+# sudo apt update && sudo apt -y install openssh-server && sudo systemctl start ssh
+# `ssh localhost` then use wrong password
+# grep "Failed password" /var/log/auth.log | tail -5
+
+# For Alpine, use Hullu VM and SSH from Kali with wrong password
+# ssh root@AlpineIP
+# grep "Failed password" /var/log/messages
