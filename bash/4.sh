@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# The below script is tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
+
 # Define variables
 TARGET_IP="192.168.1.10"
 LOGFILE="/var/log/auth.log"

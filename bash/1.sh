@@ -1,39 +1,22 @@
 #!/bin/bash
 
-# Week 7 example: simple bash script
-# The below script is tested in Kali, LinuxMint and Hullu
+# Week 7 example: simple bash script automation
+# The below script is tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-echo "=== CYB803 Bash Security Automation Demo ==="
-echo "Current user: $USER"
-echo "Hostname: $(hostname)"
-echo "Date: $(date)"
-echo
+echo "Updating system..."
+sudo apt update
 
-echo "Checking current logged-in users..."
-w
-# You may also use `who` in Ubuntu and Mint
-echo
+echo "Downloading VS Code package..."
+wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 
-echo "Checking listening network ports..."
-# In Kali and Mint, make sure SSH is started: sudo systemctl start ssh
-# This also works on Hullu
-ss -tuln
-echo
+echo "Installing VS Code..."
+sudo apt install -y ./vscode.deb
 
-echo "Displaying last 5 failed login attempts (if available)..."
-journalctl | grep "Failed password" | tail -5
-# or use:
-# journalctl | grep authentication | tail -5
-# journalctl | grep pam | tail -5
+echo "Fixing dependencies if needed..."
+sudo apt --fix-broken install -y
 
-# For Ubuntu and Linux Mint:
-# sudo apt update && sudo apt -y install openssh-server && sudo systemctl start ssh
-# ssh localhost
-# then enter a wrong password
-# grep "Failed password" /var/log/auth.log | tail -5
+echo "Cleaning up..."
+rm vscode.deb
 
-# For Hulu:
-# ssh root@HulluIP
-# then enter a wrong password
-# grep "Failed password" /var/log/messages | tail -5
+echo "VS Code installation completed."

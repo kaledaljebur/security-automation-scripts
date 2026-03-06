@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Example Bash script demonstrating structure
+# The below script is tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
 
 # Display script start message
 echo "Starting security script..."
