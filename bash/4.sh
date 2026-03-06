@@ -3,16 +3,17 @@
 # The below script is tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-# Define variables
-TARGET_IP="192.168.1.10"
-LOGFILE="/var/log/auth.log"
+# Enable SSH in Kali:
+# sudo systemctl start ssh
+# ssh kali@KaliIP 192.168.8.131
 
+# Define variables
+TARGET_IP="192.168.8.131"
 echo "Target IP: $TARGET_IP"
-echo "Checking login attempts in $LOGFILE"
+echo "Checking login attempts in system journal"
 echo
 
-# Search for activity from the target IP
-grep "$TARGET_IP" $LOGFILE 2>/dev/null
-
+# Search journal logs for the target IP
+sudo journalctl | grep "$TARGET_IP"
 echo
 echo "Search completed."
