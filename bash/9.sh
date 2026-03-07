@@ -1,11 +1,20 @@
 #!/bin/bash
 
-LOGFILE="/var/log/auth.log"
+# awk example
+# The below script is tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
 
-echo "Extracting usernames involved in failed login attempts..."
+OUTPUT="9-usernames.txt"
+
+echo "Listing system usernames..."
 echo
 
-grep "Failed password" $LOGFILE 2>/dev/null | awk '{print $9}' | sort | uniq -c | sort -nr
+# Use `sudo cat /etc/passwd` to check the file content
+awk -F: '{print $1}' /etc/passwd | tee "$OUTPUT"
 
 echo
-echo "Summary of targeted usernames displayed above."
+echo "Usernames saved in $OUTPUT"
+
+# awk -F: -> use ":" as the field separator
+# {print $1} -> print the first field (username)
+# /etc/passwd -> system file storing user account information
