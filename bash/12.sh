@@ -4,7 +4,9 @@
 # The script below was tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-# PATH is set in case cron has a limited environment
+# PATH is set in case cron runs with a limited environment
+# Otherwise commands should be specified using their full path
+# For example: `date` is located at /usr/bin/date
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
 LOGFILE="/var/log/system-health.log"
@@ -34,7 +36,7 @@ echo >> "$LOGFILE"
 # To schedule the script:
 # chmod +x /home/kaled/Desktop/security-automation-scripts/bash/12.sh
 
-# 1. Run:
+# 1. Run the below and select /bin/nano as an editor:
 # sudo crontab -e
 # 2. Add the following line:
 # * * * * * /home/kaled/Desktop/security-automation-scripts/bash/12.sh
