@@ -20,3 +20,7 @@ echo "Cleaning up..."
 rm vscode.deb
 
 echo "VS Code installation completed."
+
+
+# References:
+# https://explainshell.com/
