@@ -1,25 +1,38 @@
 #!/bin/bash
 
-# Automating System Administration Tasks example
-# The script below was tested in Kali
+# Automating System Administration Tasks as a Service
+# Tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-echo "Running system health checks..."
-echo
+# This script continuously checks basic system health information
+# and writes the results to a log file.
 
-echo "Disk usage:"
-df -h
-echo
+LOGFILE="/home/kaled/system-health.log"
 
-echo "Memory usage:"
-free -h
-echo
+while true
+do
+    echo "-------------------------------------" >> "$LOGFILE"
+    echo "Running system health checks..." >> "$LOGFILE"
+    date >> "$LOGFILE"
+    echo >> "$LOGFILE"
 
-echo "Top running processes:"
-ps aux --sort=-%cpu | head -5
-echo
+    echo "Disk usage:" >> "$LOGFILE"
+    df -h >> "$LOGFILE"
+    echo >> "$LOGFILE"
 
-echo "System check completed."
+    echo "Memory usage:" >> "$LOGFILE"
+    free -h >> "$LOGFILE"
+    echo >> "$LOGFILE"
+
+    echo "Top running processes:" >> "$LOGFILE"
+    ps aux --sort=-%cpu | head -5 >> "$LOGFILE"
+    echo >> "$LOGFILE"
+
+    echo "System check completed." >> "$LOGFILE"
+    echo >> "$LOGFILE"
+
+    sleep 10
+done
 
 
 # ps aux -> show all running processes
@@ -34,3 +47,52 @@ echo "System check completed."
 # --sort=-%cpu -> sort processes by highest CPU usage
 
 # head -5 -> display the top 5 processes
+
+
+# -------------------------------
+# HOW TO RUN THIS SCRIPT AS A SERVICE
+# -------------------------------
+
+# 1. Save the script
+# sudo nano /usr/local/bin/myscript.sh
+
+# 2. Make it executable
+# sudo chmod +x /usr/local/bin/myscript.sh
+
+
+# 3. Create a systemd service file
+# sudo nano /etc/systemd/system/myscript.service
+
+# 4. Add the following content to the service file (remove the hashes):
+# [Unit]
+# Description=System Health Monitoring Script
+# After=network.target
+#
+# [Service]
+# ExecStart=/usr/local/bin/myscript.sh
+# Restart=always
+# User=root
+#
+# [Install]
+# WantedBy=multi-user.target
+
+# 5. Reload systemd so it detects the new service
+# sudo systemctl daemon-reload
+
+# 6. Enable the service to start automatically at boot if needed
+# sudo systemctl enable myscript
+
+# 7. Start the service
+# sudo systemctl start myscript
+
+# 8. Check the service status
+# sudo systemctl status myscript
+
+# 9. Restart the service if needed
+# sudo systemctl restart myscript
+
+# 10. Stop the service
+# sudo systemctl stop myscript
+
+# 11. Disable the service from starting at boot
+# sudo systemctl disable myscript
