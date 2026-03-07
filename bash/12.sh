@@ -7,7 +7,7 @@
 # PATH is set in case cron has a limited environment
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
-LOGFILE="/home/kaled/system-health.log"
+LOGFILE="/var/log/system-health.log"
 
 echo "===== System Health Check =====" >> "$LOGFILE"
 date >> "$LOGFILE"
@@ -24,17 +24,16 @@ ps aux --sort=-%cpu | head -5 >> "$LOGFILE"
 echo "-------------------------------" >> "$LOGFILE"
 echo >> "$LOGFILE"
 
-# The log file will be saved in ~/system-health.log
+# The log file will be saved in /var/log/system-health.log
 
 # Run this script first to make sure it creates the log file:
 # bash 12.sh
-# Do not use `sudo bash 12.sh`, or the log file will be created in /root/system-health.log
 
 # Then make sure the log file has been created:
-# cat ~/system-health.log
+# cat /var/log/system-health.log
 
 # You can then remove it to test crontab:
-# rm ~/system-health.log
+# rm /var/log/system-health.log
 
 # To schedule the script:
 # chmod +x /home/kaled/Desktop/security-automation-scripts/bash/12.sh
@@ -47,7 +46,7 @@ echo >> "$LOGFILE"
 # crontab -l
 
 # After one minute, you can read the log file using:
-# cat ~/system-health.log
+# cat /var/log/system-health.log
 
 # The log file will keep updating every minute.
 

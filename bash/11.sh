@@ -7,7 +7,7 @@
 # This script continuously checks basic system health information
 # and writes the results to a log file.
 
-LOGFILE="/home/kaled/system-health.log"
+LOGFILE="/var/log/system-health.log"
 
 while true
 do
@@ -79,7 +79,7 @@ done
 # 5. Reload systemd so it detects the new service
 # sudo systemctl daemon-reload
 
-# 6. Enable the service to start automatically at boot if needed
+# 6. Enable the service to start automatically at boot if needed (optional step)
 # sudo systemctl enable myscript
 
 # 7. Start the service
