@@ -24,3 +24,4 @@ echo "VS Code installation completed."
 
 # References:
 # https://explainshell.com/
+# https://www.gnu.org/software/bash/manual/bash.html

@@ -31,3 +31,6 @@ echo "Top attacking IP addresses displayed above."
 # uniq -c -> count how many times each IP appears
 # sort -nr -> -n numeric sort, -r reverse order (largest first)
 # head -> display the top 10 attacking IP addresses (10 is the default)
+
+# References:
+# https://www.gnu.org/software/grep/manual/grep.html

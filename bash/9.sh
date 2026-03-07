@@ -18,3 +18,6 @@ echo "Usernames saved in $OUTPUT"
 # awk -F: -> use ":" as the field separator
 # {print $1} -> print the first field (username)
 # /etc/passwd -> system file storing user account information
+
+# References:
+# https://www.gnu.org/software/gawk/manual/gawk.html

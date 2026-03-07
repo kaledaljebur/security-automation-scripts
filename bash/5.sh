@@ -29,16 +29,15 @@ echo "Scan completed."
 # -c 1 -> send only 1 packet
 # > /dev/null -> discard normal output
 # 2>&1 -> redirect error output to the same location as normal output. Since normal output is sent to /dev/null, errors are also discarded
-
     # In Linux, 0, 1, and 2 are standard file descriptors:
     # 0 -> stdin (input)
     # 1 -> stdout (normal output)
     # 2 -> stderr (error output)
-
 # if [ $? -eq 0 ] -> check the exit status of the previous command
-
     # $? stores the exit status of the last executed command (ping)
     # 0 -> success
     # non-zero (1,2,etc.) -> failure
-
 # -eq -> equal to (numeric comparison)
+
+# References:
+# https://www.gnu.org/software/bash/manual/bash.html#Looping-Constructs

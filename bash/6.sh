@@ -22,3 +22,6 @@ check_host 192.168.8.2
 check_host 192.168.8.3
 check_host 192.168.8.4
 check_host 192.168.8.5
+
+# References:
+# https://www.gnu.org/software/bash/manual/bash.html#Shell-Functions

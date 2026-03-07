@@ -37,3 +37,7 @@ echo "Host checking completed."
 # read ip -> reads one line at a time from the input
 # ip -> stores the line value from $FILE
 # < $FILE will redirect the file as input to the while loop
+
+
+# References:
+# https://www.gnu.org/software/bash/manual/bash.html#Redirections
