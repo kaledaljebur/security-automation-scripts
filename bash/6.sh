@@ -13,6 +13,8 @@ check_host() {
 }
 
 # Call the function
-check_host 192.168.1.1
-check_host 192.168.1.2
-check_host 192.168.1.3
+check_host 192.168.8.1
+check_host 192.168.8.2
+check_host 192.168.8.3
+check_host 192.168.8.4
+check_host 192.168.8.5
