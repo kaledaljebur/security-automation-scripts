@@ -24,26 +24,22 @@ ps aux --sort=-%cpu | head -5 >> "$LOGFILE"
 echo "-------------------------------" >> "$LOGFILE"
 echo >> "$LOGFILE"
 
-# The log file will be saved in /var/log/system-health.log
-
 # Run this script first to make sure it creates the log file:
-# bash 12.sh
-
+# sudo bash 12.sh
 # Then make sure the log file has been created:
 # cat /var/log/system-health.log
-
 # You can then remove it to test crontab:
-# rm /var/log/system-health.log
+# sudo rm /var/log/system-health.log
 
 # To schedule the script:
 # chmod +x /home/kaled/Desktop/security-automation-scripts/bash/12.sh
 
 # 1. Run:
-# crontab -e
+# sudo crontab -e
 # 2. Add the following line:
 # * * * * * /home/kaled/Desktop/security-automation-scripts/bash/12.sh
 # 3. Check that the cron job is installed:
-# crontab -l
+# sudo crontab -l
 
 # After one minute, you can read the log file using:
 # cat /var/log/system-health.log
