@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Function example
+# The below script is tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
+
 # Function to check host availability
 check_host() {
     ping -c 1 $1 > /dev/null 2>&1
