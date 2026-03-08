@@ -78,3 +78,25 @@ echo
 #
 # Because the command is used inside an "if" condition, Bash allows it to fail
 # without terminating the script, even when "set -e" is enabled.
+
+# NOTE 5:
+# Using "$?" after a command can be problematic when "set -e" is enabled.
+#
+# Example of risky pattern:
+# ping -c 1 192.168.1.10
+# if [ $? -eq 0 ]
+# then
+#     echo "Host reachable"
+# else
+#     echo "Host unreachable"
+# fi
+#
+# If the command fails, the script may exit before the exit code is checked.
+# A safer approach is to place the command directly inside the "if" condition:
+#
+# if ping -c 1 192.168.1.10
+# then
+#     echo "Host reachable"
+# else
+#     echo "Host unreachable"
+# fi
