@@ -25,7 +25,13 @@ grep -iR "$SEARCH" $LOGDIR 2>/dev/null > ./bash/$RESULT
 # To easily edit the file afterward
 chmod a+w ./bash/$RESULT
 
-echo "Results saved in ./bash/$RESULT"
+if [ -s ./bash/$RESULT ]
+then
+    echo "Results saved in ./bash/$RESULT"
+else
+    echo "No matching entries were found"
+fi
+
 echo "--------------------------------"
 echo "Search completed"
 
