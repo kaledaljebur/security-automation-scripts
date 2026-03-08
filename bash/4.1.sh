@@ -5,19 +5,15 @@
 
 # Enable SSH in Kali:
 # sudo systemctl start ssh
-# ssh kali@KaliIP, KaliIP can be like 192.168.8.131
-# Then run this script like the below:
-# sudo bash ./bash/4.1.sh 192.168.8.131
+# ssh kali@KaliIP 192.168.8.131
 
-TARGET_IP=$1
+# Define variables
+TARGET_IP="192.168.8.131"
 echo "Target IP: $TARGET_IP"
+echo "Checking login attempts in system journal"
 echo
+
+# Search journal logs for the target IP
 sudo journalctl | grep "$TARGET_IP"
 echo
 echo "Search completed."
-
-# Or you may use the below shorter version:
-# echo "Target IP: $1"
-# sudo journalctl | grep "$1"
-# echo
-# echo "Search completed."
