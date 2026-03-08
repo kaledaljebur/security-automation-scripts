@@ -58,13 +58,10 @@ sudo bash ./bash/17.1b.sh
 # 2. GNU Coreutils documentation for checksum utilities
 # https://www.gnu.org/software/coreutils/manual/html_node/sha2-utilities.html
 
-# 3. Linux File Integrity Monitoring concept
-# https://www.redhat.com/en/topics/security/file-integrity-monitoring
-
-# 4. AIDE (Advanced Intrusion Detection Environment)
+# 3. AIDE (Advanced Intrusion Detection Environment)
 # Example of a real-world file integrity monitoring tool
 # https://aide.github.io/
 
-# 5. Tripwire Open Source
+# 4. Tripwire Open Source
 # Another well-known file integrity monitoring system
 # https://github.com/Tripwire/tripwire-open-source
