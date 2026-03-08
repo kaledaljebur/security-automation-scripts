@@ -3,23 +3,19 @@
 # Tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-FILE="/etc/passwd"
-BASELINE="/tmp/passwd.hash"
+LOGFILE="/var/log/auth.log"
+THRESHOLD=5
 
-if [ ! -f "$BASELINE" ]
-then
-    echo "Creating baseline hash..."
-    sha256sum "$FILE" > "$BASELINE"
-    echo "Baseline created."
-else
-    echo "Checking file integrity..."
+echo "Checking for brute force login attempts..."
+echo
 
-    CURRENT=$(sha256sum "$FILE")
-
-    if grep -q "$CURRENT" "$BASELINE"
+grep "Failed password" "$LOGFILE" 2>/dev/null | awk '{print $11}' | sort | uniq -c | while read count ip
+do
+    if [ "$count" -ge "$THRESHOLD" ]
     then
-        echo "File integrity OK."
-    else
-        echo "WARNING: File has been modified!"
+        echo "Potential brute force attack from $ip ($count failed attempts)"
     fi
-fi
+done
+
+echo
+echo "Brute force detection completed."
