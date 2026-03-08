@@ -27,7 +27,7 @@ echo "-------------------------------" >> "$LOGFILE"
 echo >> "$LOGFILE"
 
 # Run this script first to make sure it creates the log file:
-# sudo bash 12.sh
+# sudo bash ./bash/12.sh
 # Then make sure the log file has been created:
 # cat /var/log/system-health.log
 # You can then remove it to test crontab:

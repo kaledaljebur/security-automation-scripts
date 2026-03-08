@@ -17,11 +17,11 @@
 
         Make the scripts executable first:
 
-        `chmod +x *.sh`
+        `chmod +x ./bash/*.sh`
 
         Then run a script using:
 
-        `sudo ./script.sh`
+        `sudo ./bash/1.sh`
 
         The scripts include a shebang line:
 
@@ -33,6 +33,6 @@
 
         You can also run a script directly with Bash:
 
-        `sudo bash script.sh`
+        `sudo bash ./bash/1.sh`
 
         In this case, the script does **not need executable permission**, because Bash reads the file directly.

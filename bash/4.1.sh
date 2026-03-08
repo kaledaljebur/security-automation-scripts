@@ -7,7 +7,7 @@
 # sudo systemctl start ssh
 # ssh kali@KaliIP, KaliIP can be like 192.168.8.131
 # Then run this script like the below:
-# sudo bash 4.1.sh 192.168.8.131
+# sudo bash ./bash/4.1.sh 192.168.8.131
 
 TARGET_IP=$1
 echo "Target IP: $TARGET_IP"
