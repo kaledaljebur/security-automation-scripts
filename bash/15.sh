@@ -66,3 +66,15 @@ echo
 #
 # The function "error_handler" would then contain the commands that should
 # run when an error occurs (printing messages, cleaning temporary files, etc.).
+
+# NOTE 4:
+# In Bash, the "if" statement does not check true/false values directly.
+# Instead, it runs the command and evaluates its exit status.
+# An exit code of 0 means success (true), while any non-zero value means failure (false).
+#
+# Example:
+# If ping succeeds (exit code 0), the "then" block runs.
+# If ping fails (exit code not 0), the "else" block runs.
+#
+# Because the command is used inside an "if" condition, Bash allows it to fail
+# without terminating the script, even when "set -e" is enabled.
