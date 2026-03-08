@@ -1,18 +1,21 @@
 #!/bin/bash
 
+# Tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
+
 LOGFILE="/var/log/auth.log"
 THRESHOLD=5
 
-echo "Detecting possible brute force attempts..."
+echo "Checking for brute force login attempts..."
 echo
 
 grep "Failed password" "$LOGFILE" 2>/dev/null | awk '{print $11}' | sort | uniq -c | while read count ip
 do
     if [ "$count" -ge "$THRESHOLD" ]
     then
-        echo "Suspicious activity detected from IP: $ip ($count attempts)"
+        echo "Potential brute force attack from $ip ($count failed attempts)"
     fi
 done
 
 echo
-echo "Detection completed."
+echo "Brute force detection completed."

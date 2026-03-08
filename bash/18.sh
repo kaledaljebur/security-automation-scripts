@@ -1,28 +1,22 @@
 #!/bin/bash
 
+# Tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
+
 LOGFILE="/var/log/auth.log"
-NETWORK="192.168.1"
+THRESHOLD=5
 
-echo "=== Security Lab Script ==="
+echo "Checking for attacking IP addresses..."
 echo
 
-echo "1. Checking failed login attempts..."
-grep "Failed password" $LOGFILE 2>/dev/null | awk '{print $11}' | sort | uniq -c | sort -nr | head
-echo
-
-echo "2. Scanning first 5 hosts in the network..."
-
-for host in {1..5}
+grep "Failed password" "$LOGFILE" 2>/dev/null | awk '{print $11}' | sort | uniq -c | while read count ip
 do
-    ip="$NETWORK.$host"
-
-    ping -c 1 -W 1 $ip > /dev/null 2>&1
-
-    if [ $? -eq 0 ]
+    if [ "$count" -ge "$THRESHOLD" ]
     then
-        echo "$ip is active"
+        echo "Blocking attacker: $ip ($count attempts)"
+        sudo iptables -A INPUT -s "$ip" -j DROP
     fi
 done
 
 echo
-echo "Lab script completed."
+echo "Firewall update completed."

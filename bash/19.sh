@@ -1,18 +1,25 @@
 #!/bin/bash
 
-echo "=== Automated Security Check ==="
-echo
+# Tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
 
-echo "Checking logged-in users..."
-who
-echo
+FILE="/etc/passwd"
+BASELINE="/tmp/passwd.hash"
 
-echo "Checking open network ports..."
-ss -tuln
-echo
+if [ ! -f "$BASELINE" ]
+then
+    echo "Creating baseline hash..."
+    sha256sum "$FILE" > "$BASELINE"
+    echo "Baseline created."
+else
+    echo "Checking file integrity..."
 
-echo "Checking last failed login attempts..."
-grep "Failed password" /var/log/auth.log 2>/dev/null | tail -5
-echo
+    CURRENT=$(sha256sum "$FILE")
 
-echo "Security check completed."
+    if grep -q "$CURRENT" "$BASELINE"
+    then
+        echo "File integrity OK."
+    else
+        echo "WARNING: File has been modified!"
+    fi
+fi
