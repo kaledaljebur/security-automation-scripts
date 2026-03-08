@@ -1,21 +1,23 @@
 #!/bin/bash
 
-NETWORK="192.168.1"
+# Script to automate active network reconnaissance
+# The script below was tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
 
-echo "Scanning network: $NETWORK.0/24"
-echo
+# Network range to scan
+NETWORK="192.168.8.0/24"
 
-for host in {1..10}
-do
-    ip="$NETWORK.$host"
+# Output file
+OUTPUT="/var/log/network_scan.log"
 
-    ping -c 1 -W 1 $ip > /dev/null 2>&1
+echo "===== Network Scan =====" | tee -a $OUTPUT
+date | tee -a $OUTPUT
 
-    if [ $? -eq 0 ]
-    then
-        echo "$ip is active"
-    fi
-done
+echo "Running Nmap scan on $NETWORK" | tee -a $OUTPUT
 
-echo
-echo "Network scan completed."
+# Run the scan
+nmap $NETWORK | tee -a $OUTPUT
+
+echo "" | tee -a $OUTPUT
+echo "Scan completed" | tee -a $OUTPUT
+echo "" | tee -a $OUTPUT
