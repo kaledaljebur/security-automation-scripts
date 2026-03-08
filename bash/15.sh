@@ -40,14 +40,15 @@ echo
 # ls /non_existing_directory
 # echo "This line will not execute if an error occurs."
 
-
 # NOTE 1:
+# ------------------------------------------
 # This script contains multiple examples demonstrating different error-handling techniques.
 # For learning purposes, run one example at a time.
 # Uncomment the example you want to test and comment out the others.
 # This helps you clearly observe how each mechanism works (exit codes, set -e, and trap).
 
 # NOTE 2:
+# ------------------------------------------
 # This script uses both "set -e" and "trap ERR".
 # "set -e" stops the script immediately if a command fails.
 # "trap ERR" executes specific commands automatically when an error occurs.
@@ -57,6 +58,7 @@ echo
 # so any commands after the failing command will not run.
 
 # NOTE 3:
+# ------------------------------------------
 # When the actions inside a trap become longer, it is better to place them
 # in a function and call that function from the trap.
 # This keeps the script cleaner and easier to maintain.
@@ -68,6 +70,7 @@ echo
 # run when an error occurs (printing messages, cleaning temporary files, etc.).
 
 # NOTE 4:
+# ------------------------------------------
 # In Bash, the "if" statement does not check true/false values directly.
 # Instead, it runs the command and evaluates its exit status.
 # An exit code of 0 means success (true), while any non-zero value means failure (false).
@@ -80,6 +83,7 @@ echo
 # without terminating the script, even when "set -e" is enabled.
 
 # NOTE 5:
+# ------------------------------------------
 # Using "$?" after a command can be problematic when "set -e" is enabled.
 #
 # Example of risky pattern:
