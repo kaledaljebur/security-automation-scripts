@@ -4,7 +4,7 @@
 # Tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-echo "Do not run this file, just read and follow!"
+echo "Do not run this file, just open it, read, and follow!"
 
 # Step 1: Go to the project folder
 # cd ~/Desktop/security-automation-scripts
