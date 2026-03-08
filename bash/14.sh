@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Reusable script example: the script will be based on the first argument
+# The script below was tested in Kali
+# https://github.com/kaledaljebur/security-automation-scripts
+
 check_host() {
     ip=$1
 
@@ -13,7 +17,7 @@ check_host() {
     fi
 }
 
-for host in 192.168.1.1 192.168.1.2 192.168.1.3
+for host in 192.168.8.{1..5}
 do
     check_host $host
 done
