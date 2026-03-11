@@ -44,4 +44,4 @@ This case study demonstrates how Bash scripting can automate basic Linux securit
 
 ## Resources
 
-- [Case Study Bash Script](./cyb-bash-ir-01/)
+- [Case Study Bash Script](./cyb-bash-ir-01/README.md)
