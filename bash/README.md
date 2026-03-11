@@ -36,3 +36,12 @@
         `sudo bash ./bash/1.sh`
 
         In this case, the script does **not need executable permission**, because Bash reads the file directly.
+
+
+# CYB-BASH-IR-01 Case Study 
+
+This case study demonstrates how Bash scripting can automate basic Linux security auditing and integrity verification. The script performs several security checks, including file integrity monitoring, permission auditing, detection of world-writable files, SUID/SGID binaries, user account auditing, running process inspection, and network listener analysis. The results are compiled into a security audit report.
+
+## Resources
+
+- [Case Study Bash Script](./cyb-bash-ir-01/)
