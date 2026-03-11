@@ -4,7 +4,7 @@
 # The below script is tested in Kali
 # https://github.com/kaledaljebur/security-automation-scripts
 
-FILE="7-ips.txt"
+FILE="./bash/7-ips.txt"
 
 echo "Reading IP addresses from $FILE" | tee 7.1-output.txt
 echo
