@@ -11,8 +11,8 @@ set -u
 
 DATE="$(date '+%Y-%m-%d %H:%M:%S')"
 HOSTNAME="$(hostname)"
-REPORT_DIR="./security_reports"
-BASELINE_DIR="./security_baseline"
+REPORT_DIR="./bash/cyb-bash-ir-01/security_reports"
+BASELINE_DIR="./bash/cyb-bash-ir-01/security_baseline"
 REPORT_FILE="$REPORT_DIR/security_audit_$(date '+%Y%m%d_%H%M%S').log"
 
 CRITICAL_FILES=(
