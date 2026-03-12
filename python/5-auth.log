@@ -1,0 +1,18 @@
+Mar 10 08:14:22 kali sshd[1023]: Failed password for invalid user admin from 192.168.1.45 port 53210 ssh2
+Mar 10 08:14:27 kali sshd[1023]: Failed password for invalid user admin from 192.168.1.45 port 53211 ssh2
+Mar 10 08:14:31 kali sshd[1023]: Failed password for invalid user admin from 192.168.1.45 port 53212 ssh2
+Mar 10 08:16:03 kali sshd[1058]: Accepted password for student from 192.168.1.20 port 53302 ssh2
+Mar 10 08:17:15 kali sudo:  student : TTY=pts/0 ; PWD=/home/student ; USER=root ; COMMAND=/usr/bin/apt update
+Mar 10 08:18:44 kali sshd[1091]: Failed password for root from 10.0.0.15 port 60112 ssh2
+Mar 10 08:19:02 kali sshd[1091]: Failed password for root from 10.0.0.15 port 60115 ssh2
+Mar 10 08:20:11 kali sshd[1123]: Accepted password for admin from 192.168.1.30 port 54022 ssh2
+Mar 10 08:21:45 kali sshd[1182]: Failed password for invalid user test from 172.16.0.9 port 42015 ssh2
+Mar 10 08:23:10 kali sshd[1204]: Failed password for invalid user guest from 172.16.0.9 port 42020 ssh2
+Mar 10 08:24:55 kali sshd[1220]: Accepted password for student from 192.168.1.20 port 54112 ssh2
+Mar 10 08:25:40 kali sudo:  admin : TTY=pts/1 ; PWD=/home/admin ; USER=root ; COMMAND=/usr/bin/systemctl restart ssh
+Mar 10 08:26:18 kali sshd[1251]: Failed password for root from 203.0.113.5 port 60210 ssh2
+Mar 10 08:26:25 kali sshd[1251]: Failed password for root from 203.0.113.5 port 60212 ssh2
+Mar 10 08:27:03 kali sshd[1304]: Accepted password for user1 from 192.168.1.50 port 54401 ssh2
+Mar 10 08:29:11 kali sshd[1330]: Failed password for invalid user backup from 198.51.100.7 port 61022 ssh2
+Mar 10 08:30:42 kali sshd[1345]: Failed password for invalid user support from 198.51.100.7 port 61030 ssh2
+Mar 10 08:31:17 kali sshd[1372]: Accepted password for student from 192.168.1.20 port 54521 ssh2
