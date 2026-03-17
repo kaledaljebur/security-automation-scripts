@@ -7,10 +7,12 @@ import socket          # import socket module for network communication
 import threading       # import threading to allow simultaneous send/receive
 
 server = socket.socket()                # create a socket object for the server
-server.bind(("0.0.0.0", 5000))          # bind server to all interfaces on port 5000
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # allow port reuse of port and no need to wait after stopping
+port = 5000
+server.bind(("0.0.0.0", port))          # bind server to all interfaces on port 5000
 server.listen(1)                        # listen for incoming connections (max 1 client)
 
-print("Server listening on port 5000...")  # display message that server is ready
+print(f"Server listening on port {port}...")  # display message that server is ready
 
 conn, addr = server.accept()           # accept a connection from a client
 print("Connected from:", addr)         # print client address
@@ -28,7 +30,7 @@ def receive_messages():
                 server.close()                     # close server socket
                 break                              # exit the loop
 
-            print("\nClient:", data)  # print received message from client
+            print("Client:", data)  # print received message from client
 
         except:
             break                    # stop loop if error occurs (e.g. connection lost)

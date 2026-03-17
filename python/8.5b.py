@@ -7,7 +7,8 @@ import socket          # import socket module for networking
 import threading       # import threading for simultaneous operations
 
 client = socket.socket()                  # create a socket object for the client
-client.connect(("127.0.0.1", 5000))      # connect to server at localhost on port 5000
+port = 5000
+client.connect(("127.0.0.1", port))      # connect to server at localhost on port 5000
 
 print("Connected to server")             # confirm connection
 
@@ -23,7 +24,7 @@ def receive_messages():
                 client.close()                     # close client socket
                 break                              # exit loop
 
-            print("\nServer:", data)  # print message received from server
+            print("Server:", data)  # print message received from server
 
         except:
             break                    # exit loop if error occurs
