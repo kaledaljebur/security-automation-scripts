@@ -40,7 +40,7 @@ threading.Thread(target=receive_messages, daemon=True).start()
 
 # Main loop for sending messages to the client
 while True:
-    message = input("Server: ")      # take input from server user
+    message = input("")      # take input from server user
     conn.send(message.encode())     # send message to client (encode to bytes)
 
     if message.lower() == "exit":   # check if server wants to exit
