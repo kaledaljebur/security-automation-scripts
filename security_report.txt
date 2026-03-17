@@ -1,3 +1,0 @@
-Security Report
-Failed login attempts detected in auth.log
-Further investigation recommended
