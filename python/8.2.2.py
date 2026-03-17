@@ -1,6 +1,7 @@
 # Py sample: Port Checker (Multiple List of Ports)
 # The below script is tested in Kali & Windows
 # https://github.com/kaledaljebur/security-automation-scripts
+# Make sure any webserver is running like IIS in Win or `sudo service apache2 start` in kali
 
 import socket
 
