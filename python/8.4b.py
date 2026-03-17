@@ -1,6 +1,7 @@
 # Py sample: Continuous Client
 # The below script is tested in Kali & Windows
 # https://github.com/kaledaljebur/security-automation-scripts
+# To see the traffic, make sure to start Wireshark and select Loopback
 
 import socket
 
