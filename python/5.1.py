@@ -3,7 +3,7 @@
 # https://github.com/kaledaljebur/security-automation-scripts
 
 # log_file = "/var/log/auth.log"
-log_file = "./5-auth.log"
+log_file = "auth.log"
 
 # Read the log file line by line
 with open(log_file, "r") as file:

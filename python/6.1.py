@@ -4,11 +4,7 @@
 
 import json
 
-log_file = "./eve3.json"
-
-import json
-
-log_file = "./eve3.json"
+log_file = "eve3.json"
 count = 0
 
 with open(log_file, "r") as file:
