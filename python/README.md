@@ -13,7 +13,7 @@
     - Download the repository from GitHub:
     - `git clone https://github.com/kaledaljebur/security-automation-scripts.git`
     - This will create a new folder named: `security-automation-scripts`
-4. Enter the Repository Folder
+4. Enter the Repository and python folder
     - `cd security-automation-scripts/python`
 5. Run a Script
     - To run a script from the current python folder, use:
