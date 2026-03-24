@@ -1,15 +1,15 @@
 ## Cryptography Activities
 
-This folder is for online cryptography activities for students.
+This folder is for online cryptography activities for you.
 
-The idea is to teach cryptography through examples using Python. Students can learn by reading short scripts, running them, changing values, and observing the results. This makes abstract crypto concepts easier to understand and discuss.
+The idea is to teach cryptography through examples using Python. You can learn by reading short scripts, running them, changing values, and observing the results. This makes abstract crypto concepts easier to understand and discuss.
 
 The activities in this folder can be designed to:
 
 - introduce one concept at a time
 - explain the idea with a small Python example
-- let students test or modify the code
-- ask students to interpret the output
+- let you test or modify the code
+- ask you to interpret the output
 - connect the example to real security use cases
 
 Suggested topics include:
@@ -26,7 +26,7 @@ Suggested topics include:
 
 - Learn cryptography by solving challenges
 - Covers AES, RSA, crypto attacks
-- Very suitable for postgraduate students
+- Very suitable for postgraduate learners
 - https://cryptohack.org/
 
 ### 2. CrypTool Online
@@ -50,5 +50,5 @@ Suggested topics include:
 
 ### 5. TutorialsPoint Cryptography
 
-- Simple explanations for weaker students
+- Simple explanations for beginners
 - https://www.tutorialspoint.com/cryptography/
