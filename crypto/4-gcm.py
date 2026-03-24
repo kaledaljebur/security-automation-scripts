@@ -1,6 +1,9 @@
 # The below script is tested in Kali & Windows
 # https://github.com/kaledaljebur/security-automation-scripts
 
+# In Kali apply the bellow to install Crypto package
+# python3 -m pip install pycryptodome --break-system-packages
+
 # Import AES encryption support
 from Crypto.Cipher import AES
 
