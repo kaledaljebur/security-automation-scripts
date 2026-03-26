@@ -6,6 +6,7 @@
 
 # In Kali apply the bellow to install Crypto package
 # python3 -m pip install pycryptodome --break-system-packages
+# Use sudo with the above command if sudo used to run this script
 
 # Import socket support for TCP networking.
 import socket
