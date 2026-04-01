@@ -1,3 +1,17 @@
+# Threaded Chat Server with deterministic AES-GCM using Student ID + passphrase
+# The below script is tested in Kali & Windows
+# https://github.com/kaledaljebur/security-automation-scripts
+# To see the traffic, start Wireshark and select the Loopback interface
+# Use the filter: tcp.port == 5000 to show only your application traffic
+# and hide other unrelated background connections
+#
+# In Kali apply the bellow to install Crypto package
+# python3 -m pip install pycryptodome --break-system-packages
+# Use sudo with the above command if sudo used to run this script
+#
+# Change DEFAULT_STUDENT_ID before running this lab
+# DEFAULT_MODE can be set to "plaintext" or "encrypted"
+
 import hashlib
 import socket
 import threading

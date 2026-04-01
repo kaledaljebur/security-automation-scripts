@@ -1,3 +1,14 @@
+# Stream verifier for deterministic AES-GCM messages using Student ID + passphrase
+# The below script is tested in Kali & Windows
+# https://github.com/kaledaljebur/security-automation-scripts
+# This script reads stream.bin and decrypts each framed message for checking
+#
+# In Kali apply the bellow to install Crypto package
+# python3 -m pip install pycryptodome --break-system-packages
+# Use sudo with the above command if sudo used to run this script
+#
+# Change STUDENT_ID before verifying the captured encrypted stream
+
 import hashlib
 from pathlib import Path
 from Crypto.Cipher import AES
