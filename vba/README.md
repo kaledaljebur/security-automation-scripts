@@ -195,6 +195,34 @@ Enabled
 
 12. Click **Apply**.
 13. Click **OK**.
+14. Open:
+
+```text
+Turn off trusted documents
+```
+
+15. Set it to:
+
+```text
+Enabled
+```
+
+16. Click **Apply**.
+17. Click **OK**.
+18. Open:
+
+```text
+Turn off Trusted Documents on the network
+```
+
+19. Set it to:
+
+```text
+Enabled
+```
+
+20. Click **Apply**.
+21. Click **OK**.
 
 ## 6. Apply the GPO on the Client
 
@@ -219,3 +247,84 @@ Cannot run the macro
 ```
 
 The GPO is working if Excel blocks the macro.
+
+## 7. Test Trusted Location Bypass and Block It
+
+First, test how a user can bypass the macro block:
+
+1. On the Windows client, open Excel.
+2. Go to:
+
+```text
+File > Options > Trust Center > Trust Center Settings > Trusted Locations
+```
+
+3. Click:
+
+```text
+Add new location
+```
+
+4. Add the folder that contains:
+
+```text
+VBA-Macro-GPO-Test.xlsm
+```
+
+5. Click **OK**.
+6. Reopen `VBA-Macro-GPO-Test.xlsm`.
+7. Click the macro test button.
+
+Expected result:
+
+```text
+The macro runs again.
+```
+
+To prevent this bypass, configure these GPO settings:
+
+```text
+User Configuration > Policies > Administrative Templates > Microsoft Excel 2016 > Excel Options > Security > Trust Center > Trusted Locations
+```
+
+Set:
+
+```text
+Disable all trusted locations = Enabled
+Allow Trusted Locations on the network = Disabled
+```
+
+Then go to:
+
+```text
+User Configuration > Policies > Administrative Templates > Microsoft Excel 2016 > Excel Options > Security > Trust Center
+```
+
+Set:
+
+```text
+Turn off trusted documents = Enabled
+Turn off Trusted Documents on the network = Enabled
+```
+
+On the client, run:
+
+```powershell
+gpupdate /force
+```
+
+Then:
+
+1. Sign out.
+2. Sign back in.
+3. Open `VBA-Macro-GPO-Test.xlsm`.
+4. Ask the student to try the macro again.
+5. Ask the student to check Excel Trusted Locations.
+
+Expected result:
+
+```text
+The macro is blocked.
+Trusted Locations settings are grayed out.
+Trusted Documents cannot be used to bypass the macro block.
+```
