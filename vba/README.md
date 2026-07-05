@@ -11,13 +11,11 @@ The lab scenario uses:
 
 The goal is to test how macro-related GPO settings affect Office documents in a controlled lab environment.
 
-## Install Microsoft Office for Testing
-
+## 1. Install Office on the Windows Client
 Microsoft Office desktop applications are required for the practical activities. The commands below install Word and Excel using the Office Deployment Tool.
 
 This is suitable for a temporary VM lab. The Office trial can be reset by reverting to a clean VM snapshot.
-
-Run the following commands in PowerShell as Administrator on the Windows client:
+Run PowerShell as Administrator:
 
 ```powershell
 mkdir C:\OfficeInstall
@@ -38,17 +36,186 @@ Invoke-WebRequest -Uri $Url -OutFile "odt.exe"
 .\setup.exe /configure .\configuration.xml
 ```
 
-## Installation Notes
+You can check installation progress in Task Manager by looking for `Microsoft Office Click-to-Run`.
 
-- You can check installation progress in Task Manager by looking for `Microsoft Office Click-to-Run`.
-- When Word or Excel first opens and shows a sign-in screen, press `Esc` to skip sign-in for the lab.
-- If the Windows Server or Windows client VM restarts during installation because of the Windows evaluation period, the Office installation should resume automatically.
+When Word or Excel first opens, press `Esc` to skip sign-in.
 
-## Suggested GPO Test Flow
+## 2. Use the Excel Macro Test File
 
-1. Configure the macro policy on the Windows Server domain controller.
-2. Apply the policy to the Windows client using `gpupdate /force`.
-3. Open Word or Excel on the Windows client.
-4. Create or open a document containing a simple VBA macro.
-5. Confirm whether the macro is blocked, allowed, or shown with a warning.
-6. Record the policy setting and the observed Office behavior.
+Use the test file located in the same folder as this README:
+
+[VBA-Macro-GPO-Test.xlsm](./VBA-Macro-GPO-Test.xlsm)
+
+
+1. Open `VBA-Macro-GPO-Test.xlsm` on the Windows client.
+2. Click the macro test button.
+3. Confirm the macro works before applying GPO.
+
+## 3. Install Office ADMX Templates on the Server
+
+1. Download Office Administrative Templates:
+
+```text
+https://www.microsoft.com/en-us/download/details.aspx?id=49030
+```
+
+2. Run the downloaded installer.
+3. Extract the files, for example to:
+
+```text
+C:\New folder
+```
+
+4. Copy these files:
+
+```text
+C:\New folder\admx\*.admx
+```
+
+to:
+
+```text
+C:\Windows\PolicyDefinitions
+```
+
+5. Copy these files:
+
+```text
+C:\New folder\admx\en-US\*.adml
+```
+
+to:
+
+```text
+C:\Windows\PolicyDefinitions\en-US
+```
+
+6. Close and reopen Group Policy Management Editor.
+
+## 4. Create and Link the GPO
+
+1. On the server, open:
+
+```text
+Group Policy Management
+```
+
+2. Right-click the domain, for example:
+
+```text
+e8.lab
+```
+
+3. Click:
+
+```text
+Create a GPO in this domain, and Link it here
+```
+
+4. Name it:
+
+```text
+Office Macro Settings
+```
+
+5. If the GPO already exists under **Group Policy Objects**, right-click the domain and choose:
+
+```text
+Link an Existing GPO
+```
+
+6. Select:
+
+```text
+Office Macro Settings
+```
+
+7. Click **OK**.
+
+## 5. Configure Excel Macro Blocking
+
+1. Right-click the GPO:
+
+```text
+Office Macro Settings
+```
+
+2. Click:
+
+```text
+Edit
+```
+
+3. Go to:
+
+```text
+User Configuration > Policies > Administrative Templates > Microsoft Excel 2016 > Excel Options > Security > Trust Center
+```
+
+4. Open:
+
+```text
+Macro Notification Settings
+```
+
+5. Set it to:
+
+```text
+Enabled
+```
+
+6. Select:
+
+```text
+Disable VBA macros without notification
+```
+
+7. Leave these unticked:
+
+```text
+Enable Excel 4.0 macros when VBA macros are enabled
+Require macros to be signed by a trusted publisher
+Block certificates from trusted publishers that are only installed in the current user certificate store
+Require Extended Key Usage (EKU) for certificates from trusted publishers
+```
+
+8. Click **Apply**.
+9. Click **OK**.
+10. Open:
+
+```text
+Block macros from running in Office files from the internet
+```
+
+11. Set it to:
+
+```text
+Enabled
+```
+
+12. Click **Apply**.
+13. Click **OK**.
+
+## 6. Apply the GPO on the Client
+
+Log in as the standard domain user and run:
+
+```powershell
+gpupdate /force
+```
+
+Then:
+
+1. Sign out.
+2. Sign back in.
+3. Open the `.xlsm` test file.
+4. Click the macro button.
+
+Expected result:
+
+```text
+BLOCKED CONTENT
+Cannot run the macro
+```
+
+The GPO is working if Excel blocks the macro.
