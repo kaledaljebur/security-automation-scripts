@@ -30,6 +30,7 @@ Invoke-WebRequest -Uri $Url -OutFile "odt.exe"
 .\odt.exe /extract:C:\OfficeInstall /quiet
 
 # Create a deployment configuration for Microsoft 365 Apps.
+# Use 'Display Level="None"' instead of 'Display Level="Full"' for silent installation
 '<Configuration><Add OfficeClientEdition="64" Channel="Current"><Product ID="O365ProPlusRetail"><Language ID="en-us" /></Product></Add><Display Level="Full" AcceptEULA="TRUE" /></Configuration>' | Out-File -FilePath .\configuration.xml -Encoding ascii
 
 # Install Office in the background.
