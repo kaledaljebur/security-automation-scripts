@@ -12,9 +12,9 @@ The lab scenario uses:
 The goal is to test how macro-related GPO settings affect Office documents in a controlled lab environment.
 
 ## 1. Install Office on the Windows Client
-Microsoft Office desktop applications are required for the practical activities. The commands below install Word and Excel using the Office Deployment Tool.
-
+Microsoft Office desktop applications are required for the practical activities. The commands below install `Office 365 ProPlus` using the Office Deployment Tool; it will be a trial for 5 days if not activated.
 This is suitable for a temporary VM lab. The Office trial can be reset by reverting to a clean VM snapshot.
+
 Run PowerShell as Administrator:
 
 ```powershell
