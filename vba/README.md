@@ -30,13 +30,15 @@ Invoke-WebRequest -Uri $Url -OutFile "odt.exe"
 .\odt.exe /extract:C:\OfficeInstall /quiet
 
 # Create a deployment configuration for Microsoft 365 Apps.
-'<Configuration><Add OfficeClientEdition="64" Channel="Current"><Product ID="O365ProPlusRetail"><Language ID="en-us" /></Product></Add><Display Level="None" AcceptEULA="TRUE" /></Configuration>' | Out-File -FilePath .\configuration.xml -Encoding ascii
+'<Configuration><Add OfficeClientEdition="64" Channel="Current"><Product ID="O365ProPlusRetail"><Language ID="en-us" /></Product></Add><Display Level="Full" AcceptEULA="TRUE" /></Configuration>' | Out-File -FilePath .\configuration.xml -Encoding ascii
 
 # Install Office in the background.
 .\setup.exe /configure .\configuration.xml
 ```
 
 You can check installation progress in Task Manager by looking for `Microsoft Office Click-to-Run`.
+
+In a few seconds, the command launches the large Microsoft installation window directly in the center of your screen, and it also triggers that precise status notification popup down in the bottom right corner right next to your system clock.
 
 When Word or Excel first opens, press `Esc` to skip sign-in.
 
