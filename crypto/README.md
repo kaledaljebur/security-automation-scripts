@@ -22,33 +22,40 @@ Suggested topics include:
 
 ## Online References
 
-### 1. CryptoHack
+### 1. CyberChef
+
+- Browser-based tool for encoding, decoding, hashing, encryption, and decryption
+- Combine operations into recipes to explore how data changes step by step
+- Useful for practical cryptography demonstrations and exercises
+- https://gchq.github.io/CyberChef/
+
+### 2. CryptoHack
 
 - Learn cryptography by solving challenges
 - Covers AES, RSA, crypto attacks
 - Very suitable for postgraduate learners
 - https://cryptohack.org/
 
-### 2. CrypTool Online
+### 3. CrypTool Online
 
 - Interactive visual crypto tool
 - Good for demonstrating AES, RSA, and classical ciphers
 - Useful for live teaching demos
 - https://cryptool.org/cto/
 
-### 3. TryHackMe (Cryptography Rooms)
+### 4. TryHackMe (Cryptography Rooms)
 
 - Hands-on labs with guided learning
 - Good balance between theory and practical
 - https://tryhackme.com/
 
-### 4. Interactive Cryptography Playground
+### 5. Interactive Cryptography Playground
 
 - Simple tools to visualize crypto operations
 - Good for quick explanations
 - Search: "interactive cryptography playground"
 
-### 5. TutorialsPoint Cryptography
+### 6. TutorialsPoint Cryptography
 
 - Simple explanations for beginners
 - https://www.tutorialspoint.com/cryptography/
